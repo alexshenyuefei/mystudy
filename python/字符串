@@ -1,0 +1,184 @@
+字符串
+=
+字符串是不可变对象
+字符串对象
+字符串长度：len()
+
+>>> a = 'hello python'
+>>> len(a)
+12
+
+取值
+从0开始
+反向索引-1
+>>> a[0]
+'h'
+>>> a[-1]
+'n'
+>>> a[11]
+'n'
+
+切片
+前包含后面不包含
+>>> a [2:4]
+'ll'
+>>> a [2:]
+'llo python'
+>>> a [:3]
+'hel'
+2是步长
+>>> a [::2]
+'hlopto'
+>>> a [::3]
+'hlph'
+
+字符串的运算
+=
+字符串*代表重复
+>>> a * 3
+'hello pythonhello pythonhello python'
+成员运算 in not in 返回 True/Flase
+
+>>> a
+'hello python'
+>>> 'a' in a
+False
+
+>>> 'f' not in a
+True
+
+部分字符串操作的方法
+=
+返回字符串出现的次数
+>>> a
+'hello python'
+>>> a.count('o')
+2
+以单词结尾
+>>> a.endswith('n')
+True
+以单词开头
+>>> a.startswith('h')
+True
+
+返回字符串中从最左端出现单词的位置
+>>> a.find('l')
+2
+>>> a.find('o')
+4
+返回字符串中从最右端出现单词的位置
+>>> a.rfind('h')
+9
+>>> a.rfind('k')
+-1
+
+返回字符串中从最左端出现单词的位置，单词不在里面报错
+>>> a.index('l')
+2
+返回字符串中从最右端出现单词的位置，单词不在里面报错
+>>> a.rindex('h')
+9
+
+部分字符串操作的方法
+=
+测试是否全是字母，都是返回true
+>>> a
+'hello python'     #有空格
+>>> a.isalpha()
+False
+测试是否全是数字，都是返回true
+>>> b = '123'
+>>> b.isdigit()
+True
+转换类型
+>>> b = '123'
+>>> z = int(b)
+>>> z
+123
+>>> type(z)
+<type 'int'>
+
+测试是否全是小写
+>>> a.islower()
+True
+测试是否全是大写
+>>> a.isupper()
+False
+
+将字符串转换维小写
+>>> b= 'HELLO'
+>>> b
+'HELLO'
+>>> b.lower()
+'hello'
+将字符串转换维大写
+>>> a.upper()
+'HELLO PYTHON'
+>>> a
+'hello python'
+>>> a = a.upper()
+>>> a
+'HELLO PYTHON'
+字符串替换
+>>> b = 'hello'
+>>> b.replace('l','x')
+'hexxo'
+>>> b.replace('ll','x')
+'hexo'
+返回一系列用空格分割的字符串列表
+>>> b.split()
+['hello']
+>>> b.split('e')
+['h', 'llo']
+b.split(a,b) a是将要分割的字符串，b是说明最多分割几个
+>>> b.split('l',2)
+['he', '', 'o']
+
+
+>>> a = 'hello python'
+>>> a.split('l',1)
+['he', 'lo python']
+>>> a.split('l',2)
+['he', '', 'o python']
+
+字符串拼接
+=
+第一种方法"+"号
+>>> a = 'hello'
+>>> b = 'python'
+>>> c = '!'
+>>> d = ' '    #空格
+>>> a + d + b + c
+'hello python!'
+
+第二种方法：格式化字符串 %s
+'%s %s %s'(a,b,c)
+
+>>> '%s %s %s'%(a,b,c)
+'hello python !'
+>>> 'my name is %s'% 'shen'
+'my name is shen'
+>>> '%(x)s %(y)s %(z)s'%({'x':a,'y':b,'z':c})
+'hello python !'
+
+第三种方法：join()方式
+>>> ''.join([a,b,c])
+'hellopython!'
+>>> '**'.join([a,b,c])
+'hello**python**!'
+
+第四种 format方法   前面的为顺序
+>>> '{}{}{}'.format(a,b,c)
+'hellopython!'
+
+>>> '{0}{1}{2}'.format(a,b,c)
+'hellopython!'
+
+>>> '{2}{1}{0}'.format(a,b,c)
+'!pythonhello'
+
+>>> '{2}{0}{1}'.format(a,b,c)
+'!hellopython'
+
+>>> '{n1}{n2}{n3}'.format(n1=a,n3=c,n2=b)
+'hellopython!'
